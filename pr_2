@@ -1,0 +1,37 @@
+import java.io.*;
+public class Practical2 {
+  
+    public static void main(String[] args)
+            throws IOException {
+
+        FileReader sourceStream = null;
+
+        // Try block to check for exceptions
+        try {
+
+            sourceStream = new FileReader(
+                    "/Users/om italiya /Desktop/demo.rtf");
+
+            int temp;
+
+            // If there is content inside file
+            // than read
+            while ((temp = sourceStream.read()) != -1)
+                System.out.println((char) temp);
+
+            // Display message for successful execution of program
+            System.out.print("Program successfully executed");
+        }
+
+        // finally block that executes for sure
+        // where we are closing file connections
+        // to avoid memory leakage
+        finally {
+
+            // Closing stream as no longer in use
+            if (sourceStream != null)
+                sourceStream.close();
+        }
+    }
+}
+
